@@ -6,10 +6,14 @@ public class User implements Serializable{
     private String username;
     private String password;
 
-    public User(String username,String password){
+    public User() {
         super();
-        this.username=username;
-        this.password=password;
+// TODO Auto-generated constructor stub
+    }
+    public User(String username, String password, int age, String sex) {
+        super();
+        this.username = username;
+        this.password = password;
 
     }
     public int getId(){

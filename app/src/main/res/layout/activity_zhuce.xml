@@ -106,7 +106,7 @@
 
 
                 <EditText
-                    android:id="@+id/et_registeractivity_phoneCodes"
+                    android:id="@+id/et_loginactivity_phoneCodes"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="1dp"
@@ -114,18 +114,40 @@
                     android:layout_weight="1"
                     android:hint="请输入4位验证码"
                     android:textColorHint="@android:color/white"
+                    android:paddingLeft="20dp"
 
-                    android:textSize="20dp" />
+                    android:textSize="15dp" />
 
                 <ImageView
-                    android:id="@+id/iv_registeractivity_showCode"
+                    android:id="@+id/iv_loginactivity_showCode"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="-10dp"
                     android:layout_weight="1.5"
-                    android:clickable="true"
-                    android:onClick="onClick" />
+
+                     />
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <Button
+                android:id="@+id/genghuang"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+
+                android:layout_marginLeft="200dp"
+
+                android:background="@null"
+                android:gravity="center"
+                android:text="看不清，换一张"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
         </LinearLayout>
 
         <LinearLayout
