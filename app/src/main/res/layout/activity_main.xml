@@ -11,6 +11,7 @@
 
         android:layout_marginTop="50dp"
         android:src="@drawable/qqmusic" />
+
     <EditText
         android:id="@+id/et_name"
         android:layout_width="match_parent"
@@ -38,13 +39,15 @@
         android:hint="请输入密码"
         android:inputType="textPassword" />
 
-    <Button
+    <ImageButton
         android:id="@+id/login"
         android:layout_width="90dp"
-        android:layout_height="90dp"
+
         android:layout_gravity="center"
+        android:layout_height="90dp"
+
         android:layout_marginTop="50dp"
-        android:background="@drawable/go"
+        android:background="@drawable/button_shape"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,6 +68,7 @@
             android:layout_gravity="center"
             android:text="新用户注册"
             android:textColor="@color/black"
+            android:background="@drawable/bottom_btn"
             android:textStyle="bold"
             />
     </LinearLayout>

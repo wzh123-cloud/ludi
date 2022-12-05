@@ -11,12 +11,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
 import android.widget.Button;
+import android.content.Intent;
+import android.widget.ImageButton;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_register,login;
+    Button btn_register;
+    ImageButton login;
     TextView et_name,et_password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +44,32 @@ public class MainActivity extends AppCompatActivity {
         ((EditText)findViewById(R.id.et_name)).setText(S1);
         ((EditText)findViewById(R.id.et_password)).setText(S2);
         btn_register=findViewById(R.id.btn_register);
+
+        et_password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //EditText输入状态改变，Button背景颜色也改变
+                if ("".equals(et_password.getText().toString().trim())) {
+                    login.setBackgroundColor(Color.GRAY);
+                    login.setEnabled(false);
+                } else {
+                    //设置selector来控制Button背景颜色
+                    login.setBackgroundColor(Color.BLACK);
+                    login.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
 
 
         Log.i("MainActivity", "onClick ---> login");
