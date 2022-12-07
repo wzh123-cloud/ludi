@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     login.setEnabled(false);
                 } else {
                     //设置selector来控制Button背景颜色
-                    login.setBackgroundColor(Color.BLACK);
+                    login.setBackgroundColor(Color.BLUE);
                     login.setEnabled(true);
                 }
             }
