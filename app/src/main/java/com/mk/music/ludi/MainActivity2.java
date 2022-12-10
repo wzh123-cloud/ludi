@@ -110,7 +110,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Bundle bundle = new Bundle();
-                Intent intent = new Intent(MainActivity.this, Player.class);
+                Intent intent = new Intent(MainActivity2.this, Player.class);
                 bundle.putInt("position", i);
                 bundle.putInt("now_playing", now_playing);
                 intent.putExtras(bundle);
@@ -193,7 +193,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
             case R.id.now_playing_bar:
                 if (Player.mediaPlayer != null){
                     Bundle bundle = new Bundle();
-                    Intent intent = new Intent(MainActivity.this, Player.class);
+                    Intent intent = new Intent(MainActivity2.this, Player.class);
                     bundle.putInt("position", now_playing);
                     bundle.putInt("now_playing", now_playing);
                     intent.putExtras(bundle);
