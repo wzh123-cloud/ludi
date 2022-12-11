@@ -48,6 +48,7 @@
 
         android:text="新用户注册"
 
+
         android:textColor="@color/black"
         android:textStyle="bold" />
 

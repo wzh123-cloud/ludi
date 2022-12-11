@@ -4,23 +4,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/player_layout"
+    android:background="@mipmap/background1"
+
     android:padding="10dp">
 
     <Button
         android:layout_width="40dp"
         android:layout_height="40dp"
+
+
         android:id="@+id/play_go_back"
         android:background="@drawable/back_blue"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_marginTop="10dp"
+
+
         android:orientation="horizontal"
         android:gravity="center">
 
         <ImageView
             android:layout_width="20dp"
+
             android:layout_height="20dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/mute" />
@@ -55,7 +63,7 @@
         android:layout_marginTop="40dp"
         android:text="歌曲名称"
         android:paddingLeft="10dp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="16sp"
         android:id="@+id/play_song_name" />
     <TextView
@@ -63,6 +71,7 @@
         android:layout_height="wrap_content"
         android:text="歌手名"
         android:textSize="14sp"
+        android:textColor="@color/white"
         android:paddingLeft="10dp"
         android:id="@+id/play_song_artist"/>
     <SeekBar
