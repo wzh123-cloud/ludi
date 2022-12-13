@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Ludi"
         tools:targetApi="31">
         <activity
+            android:name=".MyAdapter"
+            android:exported="false" />
+        <activity
             android:name=".player"
             android:exported="false" />
         <activity

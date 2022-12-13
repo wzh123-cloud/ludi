@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 if(flag){
                     Log.i("TAG","登录成功");
                     Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(MainActivity.this,Music.class);
+                    Intent intent = new Intent(MainActivity.this,MainActivity2.class);
                     startActivity(intent);
                 }else {
                     Log.i("TAG", "登录失败");
@@ -111,7 +111,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         Log.i("MainActivity","onStart ---> SharedPreferences");
-        SharedPreferences sp = getSharedPreferences(zhuce.SP_NAME,MODE_PRIVATE);
+        SharedPreferences sp;
+        sp = getSharedPreferences(zhuce.SP_NAME,MODE_PRIVATE);
         //SharedPreferences sp = getSharedPreferences(MainActivity2.SP_NAME,MODE_PRIVATE);
         String S1 = sp.getString(zhuce.SP_ACCOUNT,"");
         String S2 = sp.getString(zhuce.SP_PASSWORD,"");
@@ -150,4 +151,6 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         Log.i("<--","调用onRestart()");
     }
+
+
 }

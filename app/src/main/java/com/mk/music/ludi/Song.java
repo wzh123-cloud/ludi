@@ -14,8 +14,8 @@ public class Song {
         this.front = front;
         this.name = name;
         this.artist = artist;
-     //   this.duration = duration;
-      //  this.album = album;
+        this.duration = duration;
+        this.album = album;
         this.path = path;
     }
 
@@ -46,21 +46,21 @@ public class Song {
         this.artist = artist;
     }
 
-//    public long getDuration() {
-//        return duration;
-//    }
-//
-//    public void setDuration(long duration) {
-//        this.duration = duration;
-//    }
-//
-//    public String getAlbum() {
-//        return album;
-//    }
-//
-//    public void setAlbum(String album) {
-//        this.album = album;
-//    }
+    public long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(long duration) {
+        this.duration = duration;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
 
     public String getPath() {
         return path;

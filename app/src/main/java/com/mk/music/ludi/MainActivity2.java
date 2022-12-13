@@ -41,7 +41,8 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
     private List<Song> songs;
     TextView now_playing_songname;
     ImageView now_playing_songfront;
-    Button now_playing_pause, now_playing_next;
+    Button now_playing_pause;
+    ImageView now_playing_next;
     LinearLayout now_playing_bar;
     SongChangeReceiver receiver = null;
 
@@ -49,7 +50,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
         check();
     }
 
@@ -110,7 +111,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Bundle bundle = new Bundle();
-                Intent intent = new Intent(MainActivity2.this, Player.class);
+                Intent intent = new Intent(MainActivity2.this, player.class);
                 bundle.putInt("position", i);
                 bundle.putInt("now_playing", now_playing);
                 intent.putExtras(bundle);
@@ -134,10 +135,10 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
         if (requestCode == 0x11){
             if (resultCode == RESULT_OK){
                 this.now_playing = data.getIntExtra("now_playing", -1);
-                if (Player.mediaPlayer != null){
+                if (player.mediaPlayer != null){
                     now_playing_songname.setText(songs.get(now_playing).getName());
                     now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
-                    if (Player.mediaPlayer.isPlaying())
+                    if (player.mediaPlayer.isPlaying())
                         now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
                     else
                         now_playing_pause.setBackgroundResource(R.drawable.play_blue);
@@ -150,25 +151,25 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.now_playing_pause_btn:
-                if (Player.mediaPlayer != null){
-                    if(Player.mediaPlayer.isPlaying()){
+                if (player.mediaPlayer != null){
+                    if(player.mediaPlayer.isPlaying()){
                         now_playing_pause.setBackgroundResource(R.drawable.play_blue);
-                        Player.mediaPlayer.pause();
+                        player.mediaPlayer.pause();
                     }else{
                         now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
-                        Player.mediaPlayer.start();
+                        player.mediaPlayer.start();
                     }
                 }else{
                     now_playing = 0;
-                    Player.mediaPlayer = new MediaPlayer();
+                    player.mediaPlayer = new MediaPlayer();
                     try {
                         //设置歌曲路径为音源
-                        Player.mediaPlayer.setDataSource(songs.get(now_playing).getPath());
-                        Player.mediaPlayer.prepare();
+                        player.mediaPlayer.setDataSource(songs.get(now_playing).getPath());
+                        player.mediaPlayer.prepare();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Player.mediaPlayer.start();
+                    player.mediaPlayer.start();
                     now_playing_songname.setText(songs.get(now_playing).getName());
                     now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
                     now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
@@ -179,21 +180,21 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
                 now_playing_songname.setText(songs.get(now_playing).getName());
                 now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
                 now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
-                Player.mediaPlayer.stop();
+                player.mediaPlayer.stop();
                 try {
-                    Player.mediaPlayer.reset();
-                    Player.mediaPlayer.setDataSource(songs.get(now_playing).getPath());
-                    Player.mediaPlayer.prepare();
-                    Player.mediaPlayer.start();
+                    player.mediaPlayer.reset();
+                    player.mediaPlayer.setDataSource(songs.get(now_playing).getPath());
+                    player.mediaPlayer.prepare();
+                    player.mediaPlayer.start();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 break;
 
             case R.id.now_playing_bar:
-                if (Player.mediaPlayer != null){
+                if (player.mediaPlayer != null){
                     Bundle bundle = new Bundle();
-                    Intent intent = new Intent(MainActivity2.this, Player.class);
+                    Intent intent = new Intent(MainActivity2.this, player.class);
                     bundle.putInt("position", now_playing);
                     bundle.putInt("now_playing", now_playing);
                     intent.putExtras(bundle);
@@ -212,7 +213,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
             now_playing = intent.getIntExtra("now_playing_change", -1);
             now_playing_songname.setText(songs.get(now_playing).getName());
             now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
-            if (Player.mediaPlayer.isPlaying()){
+            if (player.mediaPlayer.isPlaying()){
                 now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
             }
         }

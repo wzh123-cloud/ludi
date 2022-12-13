@@ -93,12 +93,13 @@ public class zhuce extends AppCompatActivity {
                     SharedPreferences.Editor editor=sp.edit();
                     editor.putString(SP_ACCOUNT,S1);
                     editor.putString(SP_PASSWORD,S1);
+                    editor.commit();
                     UserService uService=new UserService(zhuce.this);
                     User user=new User();
                     user.setUsername(name);
                     user.setPassword(pass);
                     uService.register(user);
-                    editor.commit();
+
                     Toast.makeText(zhuce.this, "注册成功!", Toast.LENGTH_SHORT).show();
                     zhuce.this.finish();
 

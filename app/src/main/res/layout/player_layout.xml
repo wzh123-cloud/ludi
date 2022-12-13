@@ -8,46 +8,37 @@
 
     android:padding="10dp">
 
+
+
+
     <Button
         android:layout_width="40dp"
         android:layout_height="40dp"
-
-
         android:id="@+id/play_go_back"
         android:background="@drawable/back_blue"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="10dp"
-
-
         android:orientation="horizontal"
         android:gravity="center">
-
         <ImageView
             android:layout_width="20dp"
-
             android:layout_height="20dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/mute" />
-
-        <SeekBar
-            android:id="@+id/volume_seekbar"
-            android:layout_marginLeft="10dp"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content" />
+            android:layout_marginRight="300dp"
+            android:background="@drawable/mute"/>
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@drawable/max"/>
-
-
     </LinearLayout>
 
-
+    <SeekBar
+        android:id="@+id/volume_seekbar"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/play_song_front"
@@ -71,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="歌手名"
         android:textSize="14sp"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         android:paddingLeft="10dp"
         android:id="@+id/play_song_artist"/>
     <SeekBar
@@ -83,18 +74,21 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
+            android:id="@+id/play_current_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:text="0:00"
-            android:id="@+id/play_current_time"/>
+            android:textColor="@android:color/white"/>
 
         <TextView
             android:id="@+id/play_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/white"/>
     </RelativeLayout>
 
     <LinearLayout
@@ -103,26 +97,25 @@
         android:layout_marginTop="25dp"
         android:orientation="horizontal"
         android:gravity="center">
-        <Button
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/pre_ap"
             android:id="@+id/play_pre"/>
-        <Button
+        <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/pause_blue"
             android:id="@+id/play_btn"/>
-        <Button
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/next_ap"
             android:id="@+id/play_next"/>
 
     </LinearLayout>
-
 
 
 

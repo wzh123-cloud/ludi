@@ -21,8 +21,8 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="120dp"
-            android:background="@drawable/icon_list" />
+            android:layout_marginLeft="140dp"
+            android:background="@drawable/music" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/icon_list" />
+            android:background="@drawable/music" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                 android:layout_marginLeft="10dp"
                 android:singleLine="true"
                 android:text="正在播放"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Button
@@ -89,14 +89,14 @@
                 android:layout_marginRight="63dp"
                 android:background="@drawable/play_blue" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/now_playing_next_btn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/next_ap" />
+                android:background="@drawable/next" />
 
         </RelativeLayout>
 

@@ -25,20 +25,20 @@ public class SongTools {
                     cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
             @SuppressLint("Range") String artist = cursor.getString(
                     cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
-//            @SuppressLint("Range") String album = cursor.getString(
-//                    cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM));
-//            @SuppressLint("Range") Long duration = cursor.getLong(
-//                    cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
-//            @SuppressLint("Range") int album_id = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID));
-//            // Bitmap front = getAlbumBitmap(context, album_id);
+            @SuppressLint("Range") String album = cursor.getString(
+                    cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM));
+            @SuppressLint("Range") Long duration = cursor.getLong(
+                    cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
+            @SuppressLint("Range") int album_id = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID));
+            // Bitmap front = getAlbumBitmap(context, album_id);
             @SuppressLint("Range") String file_name = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME));
             @SuppressLint("Range") String path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
 
             if (file_name.endsWith(".mp3")){
                 Song song = new Song();
                 song.setName(name);
-//                song.setAlbum(album);
-//                song.setDuration(duration);
+                song.setAlbum(album);
+                song.setDuration(duration);
                 song.setArtist(artist);
                 // song.setFront(front);
                 song.setPath(path);
