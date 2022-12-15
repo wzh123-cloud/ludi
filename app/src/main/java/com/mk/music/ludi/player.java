@@ -28,8 +28,8 @@ import java.io.IOException;
 import java.util.List;
 
 public class player extends Activity implements View.OnClickListener{
-    Button back_btn;
-    ImageButton play_btn,next_btn,  pre_btn;
+    //Button back_btn;
+    ImageButton play_btn,next_btn,  pre_btn,back_btn;
     SeekBar volume_sb, duration_sb;
     TextView artist_tv, name_tv, total_tv, current_tv;
     ImageView front_iv;
@@ -52,6 +52,8 @@ public class player extends Activity implements View.OnClickListener{
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         service = new SongTools();
+
+
 
 
         back_btn = findViewById(R.id.play_go_back);
@@ -86,6 +88,7 @@ public class player extends Activity implements View.OnClickListener{
                 }
                 duration_sb.setProgress(mediaPlayer.getCurrentPosition());
                 current_tv.setText(service.getCurTime(mediaPlayer.getCurrentPosition()));
+
             }else{
                 mediaPlayer.stop();
                 mediaPlayer.reset();
@@ -103,10 +106,13 @@ public class player extends Activity implements View.OnClickListener{
         }else{
             //开始播放歌曲
             mediaPlayer = new MediaPlayer();
+
             try {
                 //设置歌曲路径为音源
                 mediaPlayer.setDataSource(path);
                 mediaPlayer.prepare();
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -250,7 +256,7 @@ public class player extends Activity implements View.OnClickListener{
                     animator.setDuration(10000);  //动画旋转一周的时间为10秒
                     animator.setInterpolator(new LinearInterpolator());
                     animator.setRepeatCount(-1);  //-1表示设置动画无限循环
-                    animator.pause();
+                  //  animator.pause();
                     mediaPlayer.pause();
 
                 }else{
@@ -340,6 +346,10 @@ public class player extends Activity implements View.OnClickListener{
             bc_intent.setPackage("com.example.musicplayer");
             bc_intent.setAction(MainActivity2.SongChangeReceiver.ACTION);
             player.this.sendBroadcast(bc_intent);
+
+            animator.pause();
+            mediaPlayer.pause();
+
             finish();
         }
         return false;

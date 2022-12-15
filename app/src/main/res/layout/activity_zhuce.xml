@@ -4,23 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:textSize="20dp"
-    android:background="@drawable/yan">
+    android:background="@drawable/background3">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="20dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#01ceff"
-            android:gravity="center"
-            android:text="注册"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+
 
 
         <LinearLayout
@@ -41,10 +34,10 @@
 
             <TextView
                 style="@style/tvTwo"
-                android:paddingLeft="40dp"
+                android:paddingLeft="50dp"
                 android:text="音乐你的生活"
                 android:textColor="#00FF00"
-                android:textSize="50dp" />
+                android:textSize="60dp" />
 
         </LinearLayout>
 
@@ -64,6 +57,9 @@
                 android:id="@+id/et_name"
                 style="@style/etOne"
                 android:hint="     请输入密码"
+                android:paddingLeft="10dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/blackground"
                 android:textSize="20dp" />
         </LinearLayout>
 
@@ -84,6 +80,10 @@
                 android:id="@+id/pwd1"
                 style="@style/etOne"
                 android:hint="     请输入密码"
+                android:textColorHint="@color/white"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:background="@drawable/blackground"
                 android:textSize="20dp" />
         </LinearLayout>
 
@@ -104,6 +104,9 @@
                 style="@style/etOne"
                 android:hint="     请再次输入密码"
                 android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:background="@drawable/blackground"
+                android:textColorHint="@color/white"
                 android:textSize="20dp" />
         </LinearLayout>
 
@@ -125,9 +128,10 @@
                     android:id="@+id/et_loginactivity_phoneCodes"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="1dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginRight="1dp"
                     android:layout_weight="1"
+                    android:background="@drawable/blackground"
                     android:hint="请输入4位验证码"
                     android:paddingLeft="20dp"
                     android:textColorHint="@android:color/white"
@@ -135,10 +139,12 @@
                     android:textSize="15dp" />
 
                 <ImageView
-                    android:id="@+id/iv_loginactivity_showCode"
+
+                    android:id="@+id/iv_registeractivity_showCode"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="-10dp"
+                    android:onClick="onClick"
                     android:layout_weight="1.5"
 
                     />
@@ -151,16 +157,16 @@
             android:orientation="horizontal"
             android:padding="15dp">
 
-            <Button
-                android:id="@+id/genghuang"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="200dp"
-                android:background="@null"
-                android:gravity="center"
-                android:text="看不清，换一张"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
+<!--            <Button-->
+<!--                android:id="@+id/genghuang"-->
+<!--                android:layout_width="193dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginLeft="220dp"-->
+<!--                android:background="@null"-->
+<!--                android:gravity="center"-->
+<!--                android:text="看不清，换一张"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="18sp" />-->
 
         </LinearLayout>
 
@@ -250,6 +256,8 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+
+        android:background="#00000000"
         android:gravity="center"
         android:text="提交"
         android:textColor="@android:color/white"

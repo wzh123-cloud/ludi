@@ -30,7 +30,7 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     Button btn_register;
-    ImageButton login;
+    Button login;
     TextView et_name,et_password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

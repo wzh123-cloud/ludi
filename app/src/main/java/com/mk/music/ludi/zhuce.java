@@ -43,19 +43,22 @@ public class zhuce extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zhuce);
         btn_submit=findViewById(R.id.btn_submit);
-        genghuang=findViewById(R.id.genghuang);
+        //genghuang=findViewById(R.id.genghuang);
         et_name=findViewById(R.id.et_name);
         pwd1=findViewById(R.id.pwd1);
         pwd2=findViewById(R.id.pwd2);
+
+
         mEtloginactivityPhonecodes = findViewById(R.id.et_loginactivity_phoneCodes);
-        mIvloginactivityShowcode = findViewById(R.id.iv_loginactivity_showCode);
+        mIvloginactivityShowcode = findViewById(R.id.iv_registeractivity_showCode);
+
 
 
         mIvloginactivityShowcode.setImageBitmap(Code.getInstance().createBitmap());
         realCode = Code.getInstance().getCode().toLowerCase();
 
 
-        genghuang.setOnClickListener(new View.OnClickListener() {
+        mIvloginactivityShowcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mIvloginactivityShowcode.setImageBitmap(Code.getInstance().createBitmap());

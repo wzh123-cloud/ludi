@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SongTools {
 
-    //自动从媒体库中取得歌曲
+    //自动获取歌曲
     public List<Song> findSongs(Context context){
         Cursor cursor = context.getContentResolver().query(
                 MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null,
