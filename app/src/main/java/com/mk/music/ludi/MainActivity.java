@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.i("MainActivity", "onCreate ---> onTextChanged");
                 //EditText输入状态改变，Button背景颜色也改变
                 if ("".equals(et_password.getText().toString().trim())) {
                     login.setBackgroundColor(Color.GRAY);
@@ -84,14 +85,14 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("MainActivity",name+"_"+pass);
                 UserService uService=new UserService(MainActivity.this);
                 boolean flag=uService.login(name, pass);
-                if(flag){
-                    Log.i("TAG","登录成功");
-                    Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_LONG).show();
+                if(flag){ //登录成功
+                    Log.i("TAG","getResources().getString(R.string.dlsuccess)");
+                    Toast.makeText(MainActivity.this, getResources().getString(R.string.dlsuccess), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this,MainActivity2.class);
                     startActivity(intent);
-                }else {
-                    Log.i("TAG", "登录失败");
-                    Toast.makeText(MainActivity.this, "登录失败", Toast.LENGTH_LONG).show();
+                }else {  //登录失败
+                    Log.i("TAG", "getResources().getString(R.string.dlfail)");
+                    Toast.makeText(MainActivity.this, getResources().getString(R.string.dlfail), Toast.LENGTH_LONG).show();
                 }
             }
         });

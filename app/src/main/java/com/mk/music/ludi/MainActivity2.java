@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -69,6 +70,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
 
     //动态获取权限
     public void check() {
+        Log.i("MainActivity2","check ---> Dexter");
         Dexter.withContext(MainActivity2.this).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
                     @Override
@@ -131,7 +133,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.i("MainActivity", resultCode+"");
+        Log.i("MainActivity2", resultCode+"");
         if (requestCode == 0x11){
             if (resultCode == RESULT_OK){
                 this.now_playing = data.getIntExtra("now_playing", -1);
@@ -151,11 +153,14 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.now_playing_pause_btn:
+                Log.i("MainActivity2","onClick ---> now_playing_pause_btn");
                 if (player.mediaPlayer != null){
+                    Toast.makeText(MainActivity2.this, getResources().getString(R.string.player2), Toast.LENGTH_SHORT).show();
                     if(player.mediaPlayer.isPlaying()){
                         now_playing_pause.setBackgroundResource(R.drawable.play_blue);
                         player.mediaPlayer.pause();
                     }else{
+                        Toast.makeText(MainActivity2.this, getResources().getString(R.string.player1), Toast.LENGTH_SHORT).show();
                         now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
                         player.mediaPlayer.start();
                     }
@@ -176,6 +181,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.now_playing_next_btn:
+                Log.i("MainActivity2","onClick ---> now_playing_next_btn");
                 now_playing = (now_playing + 1) % songs.size();
                 now_playing_songname.setText(songs.get(now_playing).getName());
                 now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
@@ -192,6 +198,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.now_playing_bar:
+                Log.i("MainActivity2","onClick ---> now_playing_bar");
                 if (player.mediaPlayer != null){
                     Bundle bundle = new Bundle();
                     Intent intent = new Intent(MainActivity2.this, player.class);
@@ -210,6 +217,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
         static final String ACTION = "com.example.musicplayer.songchange";
         @Override
         public void onReceive(Context context, Intent intent) {
+            Log.i("MainActivity2","SongChangeReceiver ---> BroadcastReceiver");
             now_playing = intent.getIntExtra("now_playing_change", -1);
             now_playing_songname.setText(songs.get(now_playing).getName());
             now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());

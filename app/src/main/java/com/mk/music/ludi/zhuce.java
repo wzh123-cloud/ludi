@@ -80,16 +80,16 @@ public class zhuce extends AppCompatActivity {
                 Log.i("zhuce", name+"--->"+pass);
 
                 if(pwd1.length()==0){
-                    Toast.makeText(zhuce.this,"用户名不能为空",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(zhuce.this,getResources().getString(R.string.zhuce1),Toast.LENGTH_SHORT).show();
                 }
                 else if(4>=pwd1.length()){
-                    Toast.makeText(zhuce.this,"密码长度应在4-18字之间",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(zhuce.this,getResources().getString(R.string.zhuce2),Toast.LENGTH_SHORT).show();
                 }
                 else if(pwd1.length()>=18){
-                    Toast.makeText(zhuce.this,"密码长度应在4-18字之间",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(zhuce.this,getResources().getString(R.string.zhuce3),Toast.LENGTH_SHORT).show();
                 }
                 else if(pwd2.length()>=18){
-                    Toast.makeText(zhuce.this,"密码长度应在4-18字之间",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(zhuce.this,getResources().getString(R.string.zhuce4),Toast.LENGTH_SHORT).show();
                 }
                 else if((pwd1.getText().toString().trim()).equals(pwd2.getText().toString().trim())){
                     SharedPreferences sp=getSharedPreferences(SP_NAME,MODE_PRIVATE);
@@ -103,14 +103,11 @@ public class zhuce extends AppCompatActivity {
                     user.setPassword(pass);
                     uService.register(user);
 
-                    Toast.makeText(zhuce.this, "注册成功!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(zhuce.this, getResources().getString(R.string.zhuce5), Toast.LENGTH_SHORT).show();
                     zhuce.this.finish();
-
                 }
-
                 else {
-
-                    Toast.makeText(zhuce.this,"两次输入的密码不一致",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(zhuce.this,getResources().getString(R.string.zhuce6),Toast.LENGTH_SHORT).show();
                 }
 
 

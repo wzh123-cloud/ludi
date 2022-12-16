@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="我喜欢"
+            android:text="@string/main2_xml1"
             android:textColor="@android:color/white"
             android:textSize="23sp" />
 
@@ -77,7 +77,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:singleLine="true"
-                android:text="正在播放"
+                android:text="@string/main2_xml2"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 

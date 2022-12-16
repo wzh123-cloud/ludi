@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SongTools {
-
     //自动获取歌曲
     public List<Song> findSongs(Context context){
         Cursor cursor = context.getContentResolver().query(
@@ -49,8 +48,6 @@ public class SongTools {
         return songs;
     }
 
-
-    //将毫秒转换为分：秒的形式
     public String getCurTime(int duration){
         String time = "";
         int min = duration/1000/60;

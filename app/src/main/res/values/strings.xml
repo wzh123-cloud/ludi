@@ -1,3 +1,59 @@
 <resources>
     <string name="app_name">ludi</string>
+    <string name="dlfail">登录失败！</string>
+    <string name="dlsuccess">登录成功！</string>
+
+    <string name="zhuce1">用户名不能为空</string>
+    <string name="zhuce2">密码长度应在4-18字之间</string>
+    <string name="zhuce3">密码长度应在4-18字之间</string>
+    <string name="zhuce4">密码长度应在4-18字之间</string>
+    <string name="zhuce5">注册成功！</string>
+    <string name="zhuce6">两次输入的密码不一致</string>
+
+    <string name="player1">开始播放</string>
+    <string name="player2">暂停播放</string>
+
+    <string name="main_xml1">请输入账号</string>
+    <string name="main_xml2">请输入密码</string>
+    <string name="main_xml3">登入</string>
+    <string name="main_xml4">新用户注册</string>
+    <string name="main_xml5">暂停播放</string>
+
+    <string name="main2_xml1">我喜欢</string>
+    <string name="main2_xml2">正在播放</string>
+
+    <string name="zhuce_xml1">音乐你的生活</string>
+    <string name="zhuce_xml2">昵称</string>
+    <string name="zhuce_xml3">请输入昵称</string>
+    <string name="zhuce_xml4">密码</string>
+    <string name="zhuce_xml5">请输入密码</string>
+    <string name="zhuce_xml6">密码</string>
+    <string name="zhuce_xml7">请再次输入密码</string>
+    <string name="zhuce_xml8">请输入4位验证码</string>
+    <string name="zhuce_xml9">性别</string>
+    <string name="zhuce_xml10">男</string>
+    <string name="zhuce_xml11">女</string>
+    <string name="zhuce_xml12">我的喜欢：</string>
+    <string name="zhuce_xml13">流行</string>
+    <string name="zhuce_xml14">古典</string>
+    <string name="zhuce_xml15">摇滚</string>
+    <string name="zhuce_xml16">提交</string>
+
+    <string name="player_xml1">歌曲名称</string>
+    <string name="player_xml2">歌手名</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>
