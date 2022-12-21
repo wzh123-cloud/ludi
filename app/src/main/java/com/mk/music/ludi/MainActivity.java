@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
@@ -26,6 +29,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import android.os.Bundle;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -87,12 +93,30 @@ public class MainActivity extends AppCompatActivity {
                 boolean flag=uService.login(name, pass);
                 if(flag){ //登录成功
                     Log.i("TAG","getResources().getString(R.string.dlsuccess)");
-                    Toast.makeText(MainActivity.this, getResources().getString(R.string.dlsuccess), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(MainActivity.this, getResources().getString(R.string.dlsuccess), Toast.LENGTH_LONG).show();
+
+                    Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.dlsuccess), Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    LinearLayout toastView = (LinearLayout) toast.getView();
+                    ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    imageCodeProject.setImageResource(R.drawable.success);
+                    toastView.addView(imageCodeProject, 0);
+                    showMyToast(toast, 10*400);
+
+
                     Intent intent = new Intent(MainActivity.this,MainActivity2.class);
                     startActivity(intent);
                 }else {  //登录失败
                     Log.i("TAG", "getResources().getString(R.string.dlfail)");
-                    Toast.makeText(MainActivity.this, getResources().getString(R.string.dlfail), Toast.LENGTH_LONG).show();
+
+                    Toast toast = Toast.makeText(getApplicationContext(),      getResources().getString(R.string.dlfail), Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    LinearLayout toastView = (LinearLayout) toast.getView();
+                    ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    imageCodeProject.setImageResource(R.drawable.low);
+                    toastView.addView(imageCodeProject, 0);
+                    showMyToast(toast, 10*300);
+                   // Toast.makeText(MainActivity.this, getResources().getString(R.string.dlfail), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -151,6 +175,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart(){
         super.onRestart();
         Log.i("<--","调用onRestart()");
+    }
+    public void showMyToast(final Toast toast, final int cnt) {
+        final Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                toast.show();
+            }
+        }, 0, 3000);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                toast.cancel();
+                timer.cancel();
+            }
+        }, cnt );
     }
 
 

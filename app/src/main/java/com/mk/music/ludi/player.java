@@ -2,24 +2,30 @@ package com.mk.music.ludi;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.database.ContentObserver;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,10 +34,12 @@ import androidx.annotation.Nullable;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class player extends Activity implements View.OnClickListener{
-    //Button back_btn;
-    ImageButton play_btn,next_btn,  pre_btn,back_btn;
+    Button btn2;
+    ImageButton play_btn,next_btn,  pre_btn,back_btn,modelButton,modelButton1;
     SeekBar volume_sb, duration_sb;
     TextView artist_tv, name_tv, total_tv, current_tv;
     ImageView front_iv;
@@ -44,7 +52,13 @@ public class player extends Activity implements View.OnClickListener{
     SongTools service;
     private boolean sb_pause = false;
     List<Song> songs;
-
+    public int songNum; // 当前播放的歌曲在List中的下标
+    private int Sequence = 1;//顺序播放
+    private int Shuffle = 2;//随机播放
+    int i = 0;
+    int flag = 0;
+    int j = 0;
+    int flag1 = 0;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +70,9 @@ public class player extends Activity implements View.OnClickListener{
         back_btn = findViewById(R.id.play_go_back);
         play_btn = findViewById(R.id.play_btn);
         next_btn = findViewById(R.id.play_next);
+        modelButton = findViewById(R.id.model);
+        modelButton1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
         pre_btn = findViewById(R.id.play_pre);
         volume_sb = findViewById(R.id.volume_seekbar);
         duration_sb = findViewById(R.id.play_seekbar);
@@ -64,6 +81,8 @@ public class player extends Activity implements View.OnClickListener{
         total_tv = findViewById(R.id.play_duration);
         current_tv = findViewById(R.id.play_current_time);
         front_iv = findViewById(R.id.play_song_front);
+        modelButton.setOnClickListener(this);
+        modelButton1.setOnClickListener(this);
 
         songs = service.findSongs(player.this);
         this.position = bundle.getInt("position");
@@ -226,6 +245,7 @@ public class player extends Activity implements View.OnClickListener{
 
         //播放按钮，暂停按钮的实现
         play_btn.setOnClickListener(this);
+        btn2.setOnClickListener(this);
         //实现切换上/下一首
         pre_btn.setOnClickListener(this);
         next_btn.setOnClickListener(this);
@@ -330,8 +350,128 @@ public class player extends Activity implements View.OnClickListener{
                 break;
             default:
                 break;
+            case R.id.model:
+                i++;
+                if(i % 2 == 1){
+                    Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.player4), Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    LinearLayout toastView = (LinearLayout) toast.getView();
+                    ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    imageCodeProject.setImageResource(R.drawable.good);
+                    toastView.addView(imageCodeProject, 0);
+                    showMyToast(toast, 10*100);
+                    //toast.show();
+                    //产生一个随机数
+                    songNum = (int)(Math.random()*songs.size());
+                    System.out.println("song---" + songNum);
+                    //initMediaPlayer(songNum);
+                    //随机播放falg
+                    flag = 1;
+                    modelButton.setBackgroundResource(R.drawable.dangquxunhuang);
+                }
+                else{
+
+                    Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.player3), Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    LinearLayout toastView = (LinearLayout) toast.getView();
+                    ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    imageCodeProject.setImageResource(R.drawable.good);
+                    toastView.addView(imageCodeProject, 0);
+                    showMyToast(toast, 10*100);
+                    //toast.show();
+                    flag = 0;
+                    modelButton.setBackgroundResource(R.drawable.xunhuangbofang);
+                    break;
+                }
+                break;
+            case R.id.btn1:
+
+                j++;
+                if(j % 2 == 1){
+                    Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.player5), Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    LinearLayout toastView = (LinearLayout) toast.getView();
+                    ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    imageCodeProject.setImageResource(R.drawable.good);
+                    toastView.addView(imageCodeProject, 0);
+                    showMyToast(toast, 10*100);flag1 = 1;
+                    //toast.show();
+                    modelButton1.setBackgroundResource(R.drawable.lovedown);
+                    //initMediaPlayer(songNum);
+                    //随机播放falg
+                    break;
+                }
+                else{
+                    Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.player6), Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    LinearLayout toastView = (LinearLayout) toast.getView();
+                    ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    imageCodeProject.setImageResource(R.drawable.good);
+                    toastView.addView(imageCodeProject, 0);
+                    showMyToast(toast, 10*100);flag1 = 1;
+                    //toast.show();
+                    modelButton1.setBackgroundResource(R.drawable.loveup);
+                    //initMediaPlayer(songNum);
+                    //随机播放falg
+                    break;
+                }
+            case R.id.btn2:
+                setDialog();
+               // finish();
+                break;
+            case R.id.btn_choose_img:
+                //选择照片按钮
+                 Toast.makeText(this, getResources().getString(R.string.player7), Toast.LENGTH_SHORT).show();
+                //finish();
+                break;
+            case R.id.btn_open_camera:
+                //拍照按钮
+                  Toast.makeText(this, getResources().getString(R.string.player8), Toast.LENGTH_SHORT).show();
+                //finish();
+                break;
+            case R.id.btn_cancel:
+                //取消按钮
+                Toast.makeText(this, getResources().getString(R.string.player9), Toast.LENGTH_SHORT).show();
+                //finish();
+                break;
+
+                //String[] name={"getResources().getString(R.string.player6)","getResources().getString(R.string.player6)","getResources().getString(R.string.player6)"};
+
+
         }
+
     }
+    private void setDialog() {
+        Dialog mCameraDialog = new Dialog(this, R.style.BottomDialog);
+        LinearLayout root = (LinearLayout) LayoutInflater.from(this).inflate(
+                R.layout.bottom_dialog, null);
+        //初始化视图
+        root.findViewById(R.id.btn_choose_img).setOnClickListener(this);
+        root.findViewById(R.id.btn_open_camera).setOnClickListener(this);
+        root.findViewById(R.id.btn_cancel).setOnClickListener(this);
+        mCameraDialog.setContentView(root);
+        Window dialogWindow = mCameraDialog.getWindow();
+        dialogWindow.setGravity(Gravity.BOTTOM);
+//        dialogWindow.setWindowAnimations(R.style.dialogstyle); // 添加动画
+        WindowManager.LayoutParams lp = dialogWindow.getAttributes(); // 获取对话框当前的参数值
+        lp.x = 0; // 新位置X坐标
+        lp.y = 0; // 新位置Y坐标
+        lp.width = (int) getResources().getDisplayMetrics().widthPixels; // 宽度
+        root.measure(0, 0);
+        lp.height = root.getMeasuredHeight();
+
+        lp.alpha = 9f; // 透明度
+        dialogWindow.setAttributes(lp);
+        mCameraDialog.show();
+    }
+
+
+
+
+
+
+
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -368,4 +508,28 @@ public class player extends Activity implements View.OnClickListener{
             }
         }
     }
+    public void showMyToast(final Toast toast, final int cnt) {
+        final Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                toast.show();
+            }
+        }, 0, 3000);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                toast.cancel();
+                timer.cancel();
+            }
+        }, cnt );
+    }
+//    @Override
+//    protected void onStart(){
+//       super.onStart();
+//
+//          animator.pause();
+//       // mediaPlayer.pause();
+//
+//    }
 }

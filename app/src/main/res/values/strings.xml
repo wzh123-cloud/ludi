@@ -1,17 +1,24 @@
 <resources>
     <string name="app_name">ludi</string>
-    <string name="dlfail">登录失败！</string>
-    <string name="dlsuccess">登录成功！</string>
+    <string name="dlfail">...登 录 失 败 ！</string>
+    <string name="dlsuccess">...登 录 成 功 ！</string>
 
     <string name="zhuce1">用户名不能为空</string>
     <string name="zhuce2">密码长度应在4-18字之间</string>
     <string name="zhuce3">密码长度应在4-18字之间</string>
     <string name="zhuce4">密码长度应在4-18字之间</string>
-    <string name="zhuce5">注册成功！</string>
+    <string name="zhuce5">...注 册 成 功 ！</string>
     <string name="zhuce6">两次输入的密码不一致</string>
 
     <string name="player1">开始播放</string>
     <string name="player2">暂停播放</string>
+    <string name="player3">循环播放</string>
+    <string name="player4">单曲循环</string>
+    <string name="player5">已添加到我的喜欢</string>
+    <string name="player6">已取消</string>
+    <string name="player7">已分享到QQ</string>
+    <string name="player8">已分享到微信</string>
+    <string name="player9">取消</string>
 
     <string name="main_xml1">请输入账号</string>
     <string name="main_xml2">请输入密码</string>
@@ -42,18 +49,9 @@
     <string name="player_xml1">歌曲名称</string>
     <string name="player_xml2">歌手名</string>
 
-
-
-
-
-
-
-
-
-
-
-
-
+    <string name="dialog1">分享到QQ</string>
+    <string name="dialog2">分享到微信</string>
+    <string name="dialog3">取消</string>
 
 
 </resources>

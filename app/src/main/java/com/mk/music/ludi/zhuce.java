@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import android.content.Intent;
@@ -25,6 +27,9 @@ import android.widget.Toast;
 
 import android.os.Bundle;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class zhuce extends AppCompatActivity {
 
     private String realCode;
@@ -36,7 +41,9 @@ public class zhuce extends AppCompatActivity {
     private EditText mEtloginactivityPhonecodes;
     private ImageView mIvloginactivityShowcode;
 
+    private static final int LONG_DELAY = 3500; // 3.5 seconds
 
+    private static final int SHORT_DELAY = 2000; // 2 seconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,8 +109,16 @@ public class zhuce extends AppCompatActivity {
                     user.setUsername(name);
                     user.setPassword(pass);
                     uService.register(user);
+                   // Toast.makeText(zhuce.this, getResources().getString(R.string.zhuce5), Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(zhuce.this, getResources().getString(R.string.zhuce5), Toast.LENGTH_SHORT).show();
+                    Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.zhuce5), Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    LinearLayout toastView = (LinearLayout) toast.getView();
+                    ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    imageCodeProject.setImageResource(R.drawable.success);
+
+                    toastView.addView(imageCodeProject, 0);
+                    showMyToast(toast, 10*300);
                     zhuce.this.finish();
                 }
                 else {
@@ -115,5 +130,21 @@ public class zhuce extends AppCompatActivity {
         });
 
 
+    }
+    public void showMyToast(final Toast toast, final int cnt) {
+        final Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                toast.show();
+            }
+        }, 0, 3000);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                toast.cancel();
+                timer.cancel();
+            }
+        }, cnt );
     }
 }
