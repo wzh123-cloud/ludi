@@ -38,8 +38,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class player extends Activity implements View.OnClickListener{
-    Button btn2;
-    ImageButton play_btn,next_btn,  pre_btn,back_btn,modelButton,modelButton1;
+
+    ImageButton play_btn,next_btn,pre_btn,back_btn,modelButton,modelButton1,modelButton2;
     SeekBar volume_sb, duration_sb;
     TextView artist_tv, name_tv, total_tv, current_tv;
     ImageView front_iv;
@@ -72,7 +72,7 @@ public class player extends Activity implements View.OnClickListener{
         next_btn = findViewById(R.id.play_next);
         modelButton = findViewById(R.id.model);
         modelButton1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
+        modelButton2 = findViewById(R.id.btn2);
         pre_btn = findViewById(R.id.play_pre);
         volume_sb = findViewById(R.id.volume_seekbar);
         duration_sb = findViewById(R.id.play_seekbar);
@@ -245,8 +245,7 @@ public class player extends Activity implements View.OnClickListener{
 
         //播放按钮，暂停按钮的实现
         play_btn.setOnClickListener(this);
-        btn2.setOnClickListener(this);
-        //实现切换上/下一首
+        modelButton2.setOnClickListener(this);
         pre_btn.setOnClickListener(this);
         next_btn.setOnClickListener(this);
         //实现返回按钮
@@ -417,8 +416,8 @@ public class player extends Activity implements View.OnClickListener{
                 }
             case R.id.btn2:
                 setDialog();
-               // finish();
-                break;
+//               // finish();
+//                break;
             case R.id.btn_choose_img:
                 //选择照片按钮
                  Toast.makeText(this, getResources().getString(R.string.player7), Toast.LENGTH_SHORT).show();

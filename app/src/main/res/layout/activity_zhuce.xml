@@ -32,12 +32,14 @@
             android:orientation="horizontal"
             android:padding="1dp">
 
-            <TextView
+            <ImageView
                 style="@style/tvTwo"
-                android:paddingLeft="50dp"
-                android:text="@string/zhuce_xml1"
-                android:textColor="#00FF00"
-                android:textSize="60dp" />
+                android:layout_width="150dp"
+                android:layout_marginLeft="180dp"
+                android:layout_height="150dp"
+                android:background="@drawable/zhuceimg"
+                android:gravity="center"
+                android:paddingLeft="50dp" />
 
         </LinearLayout>
 
