@@ -84,7 +84,7 @@ public class zhuce extends AppCompatActivity {
                 String name=et_name.getText().toString().trim();
                 String pass=pwd1.getText().toString().trim();
                 String pass2=pwd2.getText().toString().trim();
-                Log.i("zhuce", name+"--->"+pass);
+               // Log.i("zhuce", name+"--->"+pass);
 
                 if(pwd1.length()==0){
                     Toast.makeText(zhuce.this,getResources().getString(R.string.zhuce1),Toast.LENGTH_SHORT).show();

@@ -91,7 +91,7 @@ public class Code {
     //生成验证码
     private String createCode() {
         StringBuilder buffer = new StringBuilder();
-        Log.i("Code", "createCode ---> createCode");
+        //Log.i("Code", "createCode ---> createCode");
         for (int i = 0; i < codeLength; i++) {
             buffer.append(CHARS[random.nextInt(CHARS.length)]);
         }

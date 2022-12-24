@@ -163,7 +163,7 @@ public class player extends Activity implements View.OnClickListener{
         duration_sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                Log.i("player","duration_sb ---> setOnSeekBarChangeListener");
+               // Log.i("player","duration_sb ---> setOnSeekBarChangeListener");
                 //保证播放时间显示随进度条拖动而改变
                 String curTime = service.getCurTime(seekBar.getProgress());
                 current_tv.setText(curTime);
@@ -258,7 +258,7 @@ public class player extends Activity implements View.OnClickListener{
         switch (view.getId()){
             case R.id.play_btn:
                 Toast.makeText(player.this, getResources().getString(R.string.player1), Toast.LENGTH_SHORT).show();
-                Log.i("player","onClick ---> play_btn");
+                //Log.i("player","onClick ---> play_btn");
                 if(mediaPlayer.isPlaying()){
                     play_btn.setBackgroundResource(R.drawable.play_blue);
                     ImageView iv_music = findViewById(R.id.play_song_front);
@@ -277,7 +277,7 @@ public class player extends Activity implements View.OnClickListener{
                 }
                 break;
             case R.id.play_pre:
-                Log.i("player","onClick ---> play_pre");
+                //Log.i("player","onClick ---> play_pre");
                 Song pre_song = new Song();
                 position = ((position - 1)<0)?(songs.size() - 1):position - 1;
                 pre_song.setName(songs.get(position).getName());
@@ -309,7 +309,7 @@ public class player extends Activity implements View.OnClickListener{
                 current_tv.setText("0:00");
                 break;
             case R.id.play_next:
-                Log.i("player","onClick ---> play_next");
+                //Log.i("player","onClick ---> play_next");
                 Song next_song = new Song();
                 position = (position + 1) % songs.size();
                 next_song.setName(songs.get(position).getName());
@@ -341,7 +341,7 @@ public class player extends Activity implements View.OnClickListener{
                 current_tv.setText("0:00");
                 break;
             case R.id.play_go_back:
-                Log.i("player","onClick ---> play_go_back");
+                //Log.i("player","onClick ---> play_go_back");
                 Intent intent = new Intent(player.this, MainActivity.class);
                 intent.putExtra("now_playing", tubiao);
                 setResult(RESULT_OK, intent);
@@ -492,7 +492,7 @@ public class player extends Activity implements View.OnClickListener{
     //实现seekbar系统音量控制
     private void myRegisterReceiver(){
         VolumeReceiver volumeReceiver = new VolumeReceiver();
-        Log.i("player","myRegisterReceiver ---> myRegisterReceiver");
+        //Log.i("player","myRegisterReceiver ---> myRegisterReceiver");
         IntentFilter filter = new IntentFilter();
         filter.addAction("android.media.VOLUME_CHANGED_ACTION");
         registerReceiver(volumeReceiver, filter);

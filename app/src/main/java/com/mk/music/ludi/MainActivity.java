@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.i("MainActivity", "onCreate ---> onTextChanged");
+                //Log.i("MainActivity", "onCreate ---> onTextChanged");
                 //EditText输入状态改变，Button背景颜色也改变
                 if ("".equals(et_password.getText().toString().trim())) {
                     login.setBackgroundColor(Color.GRAY);
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Log.i("MainActivity", "onClick ---> login");
+        //Log.i("MainActivity", "onClick ---> login");
         login=findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,11 +88,11 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(name);
                 String pass=et_password.getText().toString();
                 System.out.println(pass);
-                Log.i("MainActivity",name+"_"+pass);
+               // Log.i("MainActivity",name+"_"+pass);
                 UserService uService=new UserService(MainActivity.this);
                 boolean flag=uService.login(name, pass);
                 if(flag){ //登录成功
-                    Log.i("TAG","getResources().getString(R.string.dlsuccess)");
+                   // Log.i("TAG","getResources().getString(R.string.dlsuccess)");
                     //Toast.makeText(MainActivity.this, getResources().getString(R.string.dlsuccess), Toast.LENGTH_LONG).show();
 
                     Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.dlsuccess), Toast.LENGTH_LONG);
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this,MainActivity2.class);
                     startActivity(intent);
                 }else {  //登录失败
-                    Log.i("TAG", "getResources().getString(R.string.dlfail)");
+                   // Log.i("TAG", "getResources().getString(R.string.dlfail)");
 
                     Toast toast = Toast.makeText(getApplicationContext(),      getResources().getString(R.string.dlfail), Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Log.i("MainActivity", "onClick ---> btn_register");
+        //Log.i("MainActivity", "onClick ---> btn_register");
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        Log.i("MainActivity","onStart ---> SharedPreferences");
+        //Log.i("MainActivity","onStart ---> SharedPreferences");
         SharedPreferences sp;
         sp = getSharedPreferences(zhuce.SP_NAME,MODE_PRIVATE);
         //SharedPreferences sp = getSharedPreferences(MainActivity2.SP_NAME,MODE_PRIVATE);
@@ -149,32 +149,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        Log.i("<--","调用onResume()");
+        //Log.i("<--","调用onResume()");
     }
 
     @Override
     protected void onPause(){
         super.onPause();
-        Log.i("<--","调用onPause()");
+        //Log.i("<--","调用onPause()");
     }
 
     @Override
     protected void onStop(){
         super.onStop();
-        Log.i("<--","调用onStop()");
+        //Log.i("<--","调用onStop()");
     }
 
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        Log.i("<--","调用onDestroy()");
+        //Log.i("<--","调用onDestroy()");
 
     }
 
     @Override
     protected void onRestart(){
         super.onRestart();
-        Log.i("<--","调用onRestart()");
+        //Log.i("<--","调用onRestart()");
     }
     public void showMyToast(final Toast toast, final int cnt) {
         final Timer timer = new Timer();
