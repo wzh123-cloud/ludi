@@ -114,10 +114,10 @@ public class zhuce extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.zhuce5), Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                     LinearLayout toastView = (LinearLayout) toast.getView();
-                    ImageView imageCodeProject = new ImageView(getApplicationContext());
-                    imageCodeProject.setImageResource(R.drawable.success);
+                    //ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    //imageCodeProject.setImageResource(R.drawable.success);
 
-                    toastView.addView(imageCodeProject, 0);
+                    //toastView.addView(imageCodeProject, 0);
                     showMyToast(toast, 10*300);
                     zhuce.this.finish();
                 }

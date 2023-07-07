@@ -98,9 +98,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.dlsuccess), Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                     LinearLayout toastView = (LinearLayout) toast.getView();
-                    ImageView imageCodeProject = new ImageView(getApplicationContext());
-                    imageCodeProject.setImageResource(R.drawable.success);
-                    toastView.addView(imageCodeProject, 0);
+                    //ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    //imageCodeProject.setImageResource(R.drawable.success);
+                    //toastView.addView(imageCodeProject, 0);
                     showMyToast(toast, 10*400);
 
 
@@ -112,9 +112,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(),      getResources().getString(R.string.dlfail), Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                     LinearLayout toastView = (LinearLayout) toast.getView();
-                    ImageView imageCodeProject = new ImageView(getApplicationContext());
-                    imageCodeProject.setImageResource(R.drawable.low);
-                    toastView.addView(imageCodeProject, 0);
+                    //ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    //imageCodeProject.setImageResource(R.drawable.low);
+                    //toastView.addView(imageCodeProject, 0);
                     showMyToast(toast, 10*300);
                    // Toast.makeText(MainActivity.this, getResources().getString(R.string.dlfail), Toast.LENGTH_LONG).show();
                 }

@@ -123,7 +123,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
         });
         if (now_playing != -1){
             now_playing_songname.setText(songs.get(now_playing).getName());
-            now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
+            //now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
             now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
         }
     }
@@ -139,7 +139,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
                 this.now_playing = data.getIntExtra("now_playing", -1);
                 if (player.mediaPlayer != null){
                     now_playing_songname.setText(songs.get(now_playing).getName());
-                    now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
+                    //now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
                     if (player.mediaPlayer.isPlaying())
                         now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
                     else
@@ -155,12 +155,12 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
             case R.id.now_playing_pause_btn:
                // Log.i("MainActivity2","onClick ---> now_playing_pause_btn");
                 if (player.mediaPlayer != null){
-                    Toast.makeText(MainActivity2.this, getResources().getString(R.string.player2), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity2.this, getResources().getString(R.string.player2), Toast.LENGTH_SHORT).show();
                     if(player.mediaPlayer.isPlaying()){
                         now_playing_pause.setBackgroundResource(R.drawable.play_blue);
                         player.mediaPlayer.pause();
                     }else{
-                        Toast.makeText(MainActivity2.this, getResources().getString(R.string.player1), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity2.this, getResources().getString(R.string.player1), Toast.LENGTH_SHORT).show();
                         now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
                         player.mediaPlayer.start();
                     }
@@ -176,7 +176,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
                     }
                     player.mediaPlayer.start();
                     now_playing_songname.setText(songs.get(now_playing).getName());
-                    now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
+                    //now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
                     now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
                 }
                 break;
@@ -184,7 +184,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
                 //Log.i("MainActivity2","onClick ---> now_playing_next_btn");
                 now_playing = (now_playing + 1) % songs.size();
                 now_playing_songname.setText(songs.get(now_playing).getName());
-                now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
+                //now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
                 now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
                 player.mediaPlayer.stop();
                 try {
@@ -220,7 +220,7 @@ public class MainActivity2 extends Activity implements View.OnClickListener {
             //Log.i("MainActivity2","SongChangeReceiver ---> BroadcastReceiver");
             now_playing = intent.getIntExtra("now_playing_change", -1);
             now_playing_songname.setText(songs.get(now_playing).getName());
-            now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
+            //now_playing_songfront.setImageBitmap(songs.get(now_playing).getFront());
             if (player.mediaPlayer.isPlaying()){
                 now_playing_pause.setBackgroundResource(R.drawable.pause_blue);
             }

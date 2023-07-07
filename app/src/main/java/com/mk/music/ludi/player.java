@@ -257,7 +257,7 @@ public class player extends Activity implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.play_btn:
-                Toast.makeText(player.this, getResources().getString(R.string.player1), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(player.this, getResources().getString(R.string.player1), Toast.LENGTH_SHORT).show();
                 //Log.i("player","onClick ---> play_btn");
                 if(mediaPlayer.isPlaying()){
                     play_btn.setBackgroundResource(R.drawable.play_blue);
@@ -270,7 +270,7 @@ public class player extends Activity implements View.OnClickListener{
                     mediaPlayer.pause();
 
                 }else{
-                    Toast.makeText(player.this, getResources().getString(R.string.player2), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(player.this, getResources().getString(R.string.player2), Toast.LENGTH_SHORT).show();
                     play_btn.setBackgroundResource(R.drawable.pause_blue);
                     animator.start();
                     mediaPlayer.start();
@@ -342,8 +342,9 @@ public class player extends Activity implements View.OnClickListener{
                 break;
             case R.id.play_go_back:
                 //Log.i("player","onClick ---> play_go_back");
-                Intent intent = new Intent(player.this, MainActivity.class);
+                Intent intent = new Intent(player.this, MainActivity2.class);
                 intent.putExtra("now_playing", tubiao);
+                startActivity(intent);
                 setResult(RESULT_OK, intent);
                 finish();
                 break;
@@ -351,14 +352,14 @@ public class player extends Activity implements View.OnClickListener{
                 break;
             case R.id.model:
                 i++;
-                if(i % 2 == 1){
-                    Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.player4), Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-                    LinearLayout toastView = (LinearLayout) toast.getView();
-                    ImageView imageCodeProject = new ImageView(getApplicationContext());
-                    imageCodeProject.setImageResource(R.drawable.good);
-                    toastView.addView(imageCodeProject, 0);
-                    showMyToast(toast, 10*100);
+                if(i % 2 != 1){
+                    //Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.player4), Toast.LENGTH_LONG);
+                    //toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    //LinearLayout toastView = (LinearLayout) toast.getView();
+                    //ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    //imageCodeProject.setImageResource(R.drawable.good);
+                    //toastView.addView(imageCodeProject, 0);
+                    //showMyToast(toast, 10*100);
                     //toast.show();
                     //产生一个随机数
                     songNum = (int)(Math.random()*songs.size());
@@ -370,13 +371,13 @@ public class player extends Activity implements View.OnClickListener{
                 }
                 else{
 
-                    Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.player3), Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-                    LinearLayout toastView = (LinearLayout) toast.getView();
-                    ImageView imageCodeProject = new ImageView(getApplicationContext());
-                    imageCodeProject.setImageResource(R.drawable.good);
-                    toastView.addView(imageCodeProject, 0);
-                    showMyToast(toast, 10*100);
+                    //Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.player3), Toast.LENGTH_LONG);
+                    //toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    //LinearLayout toastView = (LinearLayout) toast.getView();
+                    //ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    //imageCodeProject.setImageResource(R.drawable.good);
+                    //toastView.addView(imageCodeProject, 0);
+                    //showMyToast(toast, 10*100);
                     //toast.show();
                     flag = 0;
                     modelButton.setBackgroundResource(R.drawable.xunhuangbofang);
@@ -390,9 +391,9 @@ public class player extends Activity implements View.OnClickListener{
                     Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.player5), Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                     LinearLayout toastView = (LinearLayout) toast.getView();
-                    ImageView imageCodeProject = new ImageView(getApplicationContext());
-                    imageCodeProject.setImageResource(R.drawable.good);
-                    toastView.addView(imageCodeProject, 0);
+                    //ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    //imageCodeProject.setImageResource(R.drawable.good);
+                    //toastView.addView(imageCodeProject, 0);
                     showMyToast(toast, 10*100);flag1 = 1;
                     //toast.show();
                     modelButton1.setBackgroundResource(R.drawable.lovedown);
@@ -404,9 +405,9 @@ public class player extends Activity implements View.OnClickListener{
                     Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.player6), Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                     LinearLayout toastView = (LinearLayout) toast.getView();
-                    ImageView imageCodeProject = new ImageView(getApplicationContext());
-                    imageCodeProject.setImageResource(R.drawable.good);
-                    toastView.addView(imageCodeProject, 0);
+                    //ImageView imageCodeProject = new ImageView(getApplicationContext());
+                    //imageCodeProject.setImageResource(R.drawable.good);
+                    //toastView.addView(imageCodeProject, 0);
                     showMyToast(toast, 10*100);flag1 = 1;
                     //toast.show();
                     modelButton1.setBackgroundResource(R.drawable.loveup);
@@ -420,17 +421,17 @@ public class player extends Activity implements View.OnClickListener{
 //                break;
             case R.id.btn_choose_img:
                 //选择照片按钮
-                 Toast.makeText(this, getResources().getString(R.string.player7), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.player7), Toast.LENGTH_SHORT).show();
                 //finish();
                 break;
             case R.id.btn_open_camera:
                 //拍照按钮
-                  Toast.makeText(this, getResources().getString(R.string.player8), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.player8), Toast.LENGTH_SHORT).show();
                 //finish();
                 break;
             case R.id.btn_cancel:
                 //取消按钮
-                Toast.makeText(this, getResources().getString(R.string.player9), Toast.LENGTH_SHORT).show();
+                 Toast.makeText(this, getResources().getString(R.string.player9), Toast.LENGTH_SHORT).show();
                 //finish();
                 break;
 

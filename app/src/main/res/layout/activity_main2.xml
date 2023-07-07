@@ -20,7 +20,7 @@
 
         <ImageView
             android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_height="15dp"
             android:layout_marginLeft="140dp"
             android:background="@drawable/music" />
 

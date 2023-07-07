@@ -36,7 +36,7 @@
                 style="@style/tvTwo"
                 android:layout_width="150dp"
                 android:layout_marginLeft="180dp"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:background="@drawable/zhuceimg"
                 android:gravity="center"
                 android:paddingLeft="50dp" />
@@ -145,7 +145,7 @@
 
                     android:id="@+id/iv_registeractivity_showCode"
                     android:layout_width="0dp"
-                    android:layout_height="70dp"
+                    android:layout_height="75dp"
                     android:layout_marginTop="-10dp"
                     android:onClick="onClick"
                     android:layout_weight="1.5"
